@@ -1,0 +1,25 @@
+{
+  "name": "tech-test-bank",
+  "version": "1.0.0",
+  "description": "## User Stories ``` As a person who is serious about their money, So that I can ensure that my money is safely kept, I want to make a deposit into my bank account ``` ``` As a person who is tired of hiding my money under my mattress, So that I can be seen as a responsible adult, I want to open a bank account ``` ``` As a person who likes the finer things in life, So that I can treat myself with life's little luxuries, I want to withdraw money from my bank account ``` ``` As a person who always keeps an eye on 'The Man', So that I can confirm my money is being correctly managed, I want to print a statement showing my balance and transaction history ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mornevanzyl/tech-test-bank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mornevanzyl/tech-test-bank/issues"
+  },
+  "homepage": "https://github.com/Mornevanzyl/tech-test-bank#readme",
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
