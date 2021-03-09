@@ -10,6 +10,9 @@ class Account {
   }
 
   deposit(amount) {
+    if (!(amount > 0)) {
+      throw new Error('Only positive amounts are accepted for deposits');
+    }
     this._balance += amount;
   }
 }

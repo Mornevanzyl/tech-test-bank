@@ -15,8 +15,14 @@ describe('Account', () => {
     expect(account.balance()).toEqual(0);
   });
 
-  it('has the facility to deposit money into the account', () => {
-    account.deposit(10);
-    expect(account.balance()).toEqual(10);
+  describe('Deposits:', () => {
+    it('has the facility to deposit money into the account', () => {
+      account.deposit(10);
+      expect(account.balance()).toEqual(10);
+    });
+
+    it('only accepts positive amounts for deposits', () => {
+      expect(() => { account.deposit(-10); }).toThrowError('Only positive amounts are accepted for deposits');
+    });
   });
 });
