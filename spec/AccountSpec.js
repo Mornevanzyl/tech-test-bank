@@ -25,4 +25,11 @@ describe('Account', () => {
       expect(() => { account.deposit(-10); }).toThrowError('Only positive amounts are accepted for deposits');
     });
   });
+
+  describe('Withdrawals:', () => {
+    it('has the facility to withdraw money from the account', () => {
+      account.withdraw(10);
+      expect(account.balance()).toEqual(-10);
+    });
+  });
 });
