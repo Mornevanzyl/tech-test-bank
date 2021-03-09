@@ -7,12 +7,18 @@ describe('Account', () => {
     account = new Account();
   });
 
-  it('is an instance of Account', () => {
-    expect(account).toBeInstanceOf(Account);
-  });
-
-  it('has an account balance of 0 when opened', () => {
-    expect(account.balance()).toEqual(0);
+  describe('General behaviour/attributes', () => {
+    it('is an instance of the Account class', () => {
+      expect(account).toBeInstanceOf(Account);
+    });
+    it('has an account balance of 0 when opened', () => {
+      expect(account.balance()).toEqual(0);
+    });
+    it('keeps a transaction record of all deposts and withdrawals', () => {
+      account.deposit(10);
+      account.withdraw(5);
+      expect(account.transactions().length).toEqual(2);
+    });
   });
 
   describe('Deposits:', () => {
@@ -40,5 +46,8 @@ describe('Account', () => {
     it('validates sufficient funds in the account for the requested withdrawal', () => {
       expect(() => { account.withdraw(10); }).toThrowError('Insufficient funds in account for requested withdrawal');
     });
+  });
+
+  describe('Account statement:', () => {
   });
 });
