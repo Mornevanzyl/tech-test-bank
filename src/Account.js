@@ -17,6 +17,9 @@ class Account {
   }
 
   withdraw(amount) {
+    if (!(amount > 0)) {
+      throw new Error('Only positive values are accepted for withdrawals');
+    }
     this._balance -= amount;
   }
 }

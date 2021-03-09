@@ -31,5 +31,9 @@ describe('Account', () => {
       account.withdraw(10);
       expect(account.balance()).toEqual(-10);
     });
+
+    it('only accepts positive values for withdrawals', () => {
+      expect(() => { account.withdraw(-10); }).toThrowError('Only positive values are accepted for withdrawals');
+    });
   });
 });
