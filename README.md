@@ -49,9 +49,11 @@ I want to print a statement showing my balance and transaction history
 ```
 
 ## Approach
-I decided on a [KISS](https://en.wikipedia.org/wiki/KISS_principle) approach to satisfying the user requirements. As a result I decided on a single `Account` class and required methods. Since transactions for this test stored only a date, value and ongoing balance, I decided not to implement a separate `Transaction` class.
+My initial approach was to favour a [KISS](https://en.wikipedia.org/wiki/KISS_principle) approach to satisfying the user requirements. As a result I implemented a single `Account` class and required methods. After self-assessment and in the interest of SRP and 'leaner' methods I extracted transactions into its own class.
 
-The `Acccount` class provides the required `deposit`, `withdraw` and `printAccountStatement` methods.
+The `Transaction` class is initialised with a positive (deposit) or negative (withdrawal) value and well as an optional date. A default of today's date is used if none is supplied. The input is validated and loosely typed as per JS convention. It has to be a valid number with a maximum of 2 decimals though.
+
+The `Acccount` class provides a `process` method which accepts a `Transaction`, as well as a `printAccountStatement` method to output an account statement, with newest transaction first.
 
 In order to pass the user's ***Acceptance Criteria***, I provided the facility to pass an optional date to the `deposit` and `withdraw` methods.
 
@@ -70,17 +72,21 @@ open SpecRunner.html
 // Create a new Account
 account = new Account();
 
+// Create a new Transaction
+transaction = new Transaction(value [, date]) // date format dd/mm/ccyy
+
 // Make Deposits
-account.deposit(value [, date]); // date format dd/mm/ccyy
+var deposit = new Transaction(120)
+account.process(deposit);
 
 // Withdraw Funds
-account.withdraw(value [, date]); // date format dd/mm/ccyy
+var withdrawal = new Transaction(-80)
+account.process(withdrawal);
 
 // Print Account Statement
 account.printAccountStatement();
 ```
 ## Suggested Improvement
-- Transactions, currently stored as three-element arrays, can be converted to objects which would improve code readability somewhat.
 - More rigorous validation can be added for the optional date input argument. 
 ## Acknowledgements
 
