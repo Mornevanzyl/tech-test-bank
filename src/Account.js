@@ -35,7 +35,8 @@ class Account {
   printAccountStatement() {
     let outputString = 'date || credit || debit || balance\n';
     this.reverseTransactions().forEach((trn) => {
-      outputString += `${trn[0]} || ${trn[1] > 0 ? trn[1].toFixed(2) : ''} || ${trn[1] < 0 ? -trn[1].toFixed(2) : ''} || ${trn[2].toFixed(2)}\n`;
+      // eslint-disable-next-line prefer-template
+      outputString += `${trn[0]} ||${trn[1] > 0 ? (' ' + trn[1].toFixed(2) + ' ') : ' '}||${trn[1] < 0 ? (' ' + ((trn[1] * -1).toFixed(2)) + ' ') : ' '}|| ${trn[2].toFixed(2)}\n`;
     });
     // eslint-disable-next-line no-console
     console.log(outputString);
