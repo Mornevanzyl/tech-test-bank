@@ -2,9 +2,11 @@
 
 describe('Account', () => {
   let account;
+  let transaction;
 
   beforeEach(() => {
     account = new Account();
+    transaction = new Transaction(100, '01/01/2020');
   });
 
   describe('General behaviour/attributes', () => {
@@ -27,6 +29,13 @@ describe('Account', () => {
       account.deposit(2000, '13/01/2012');
       account.withdraw(500, '14/01/2012');
       expect(account.printAccountStatement()).toEqual('date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00\n13/01/2012 || 2000.00 || || 3000.00\n10/01/2012 || 1000.00 || || 1000.00\n');
+    });
+  });
+
+  describe('Transactions', () => {
+    it('can process a transaction', () => {
+      account.process(transaction);
+      expect(account.balance()).toEqual(100);
     });
   });
 

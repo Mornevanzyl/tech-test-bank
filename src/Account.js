@@ -13,6 +13,12 @@ class Account {
     return this._balance;
   }
 
+  process(transaction) {
+    this._balance += transaction.value();
+    transaction.setBalance(this.balance());
+    this._transactions.push(transaction);
+  }
+
   deposit(amount, date = this.formatDate(new Date())) {
 
     amount = this.validateInput(amount, 'deposits');
