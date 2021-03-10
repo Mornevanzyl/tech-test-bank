@@ -1,3 +1,4 @@
+/* eslint-disable no-new */
 /* eslint-disable no-undef */
 describe('Transaction', () => {
   let transaction;
@@ -22,7 +23,7 @@ describe('Transaction', () => {
     expect(() => { new Transaction('ten'); }).toThrowError('Invalid input: Only valid numbers are accepted');
   });
 
-  it('accepts values in strings/integer/float format with a maximum of 2 decimal places', () => {
+  it('accepts values in string/integer/float format with a maximum of 2 decimal places', () => {
     expect(() => { new Transaction(10.001); }).toThrowError('Invalid input: Only numbers with maximum 2 decimal places are allowed');
   });
 });

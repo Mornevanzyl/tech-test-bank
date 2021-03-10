@@ -28,7 +28,7 @@ class Transaction {
     return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear().toString()}`;
   }
 
-  validateInput(value, errorPostFix) {
+  validateInput(value) {
     const exp = /^\s*-?[1-9]\d*(\.\d{1,2})?\s*$/;
 
     // eslint-disable-next-line no-param-reassign
@@ -42,9 +42,6 @@ class Transaction {
       throw new Error('Invalid input: Only numbers with maximum 2 decimal places are allowed');
     }
 
-    if (!(value > 0)) {
-      throw new Error(`Only positive values are accepted for ${errorPostFix}`);
-    }
     return value;
   }
 }
